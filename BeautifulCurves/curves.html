@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8" /><meta http-equiv="X-UA-Compatible" content="IE=edge" /><meta name="viewport" content="width=device-width, initial-scale=1.0" /><title>Document</title><link rel="preconnect" href="https://fonts.googleapis.com" /><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" /><link href="https://fonts.googleapis.com/css2?family=Prompt:wght@100;400;900&display=swap" rel="stylesheet" /><style>        h1 {
+            font-size: 4rem;
+        }
+
+        p {
+            font-size: 1.5rem;
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Prompt', sans-serif;
+            color: white;
+            background: #202731;
+            overflow-x: hidden;
+        }
+
+        section {
+            position: relative;
+            /*to position absolute children relative to thsi element*/
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 400px;
+            padding: 100px 20vw;
+        }
+
+        .dark {
+            background: #202731;
+        }
+
+        .blue {
+            background: #3c31dd;
+        }
+
+        .red {
+            background: #dd3f31;
+        }
+
+        .pink {
+            background: #ff0066;
+            overflow: hidden;
+        }
+
+        .curve {
+            position: absolute;
+            height: 225px;
+            width: 100%;
+            bottom: 0;
+            text-align: center;
+        }
+
+        .curve::before {
+            content: '';
+            display: block;
+            position: absolute;
+            border-radius: 100% 50%;
+            width: 55%;
+            height: 100%;
+            background-color: hsl(216, 21%, 16%);
+            transform: translate(85%, 60%);
+        }
+
+        .curve::after {
+            content: '';
+            display: block;
+            position: absolute;
+            border-radius: 100% 50%;
+            width: 55%;
+            height: 100%;
+            background-color: #3c31dd;
+            transform: translate(-4%, 40%);
+            z-index: -1;
+        }
+
+        .bubble::after {
+            content: '';
+            border-top-left-radius: 50% 100%;
+            border-top-right-radius: 50% 100%;
+            position: absolute;
+            bottom: 0;
+            height: 85%;
+            width: 100%;
+            background-color: #0f0f10;
+            z-index: -1;
+        }
+
+        .wave {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            overflow: hidden;
+            line-height: 0;
+        }
+
+        .wave svg {
+            position: relative;
+            display: block;
+            width: calc(100% + 1.3px);
+            height: 406px;
+        }
+
+        .wave .shape-fill {
+            fill: #202731;
+        }
+
+        .spacer {
+            aspect-ratio: 960/300;
+            /*width relative to height*/
+            width: 100%;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+        }
+
+        .layer1 {
+            background-image: url('./layered-waves-haikei.svg');
+        }
+
+        .layer2 {
+            background-image: url('');
+        }
+
+        .flip {
+            transform: rotate(180deg);
+        }
+
+        .blob-motion {
+            position: absolute;
+            transform: translateY(-20%);
+            z-index: 0;
+        }
+
+        .blob-content {
+            z-index: 1;
+        }
+
+        .blobs {
+            width: 100%;
+            background: url(./blobs.svg) no-repeat / cover;
+        }
+    
+</style></head><body><section class="blue"><h1>Nice Curves</h1><p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cupiditate facere molestiae veritatis.</p><div class="curve"></div></section><section><h1>Nice Curves</h1><p>Fugiat culpa ea laborum impedit suscipit cumque ipsa aliquid perspiciatis molestias optio.</p></section><section class="bubble"><h1>Nice Curves</h1><p>Ex accusamus consectetur magnam sint, totam assumenda aperiam. Esse nemo possimus hic?</p></section><section class="dark"><h1>Nice Curves</h1><p>Voluptates quam eligendi, provident aut neque tenetur soluta dolor impedit? Cumque, fugiat!</p></section><section class="red"><h1>Nice Curves</h1><p>Ea soluta alias quos fugiat sed dolorem culpa qui dignissimos nihil sit.</p><div class="wave"><svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 1200 120" preserveaspectratio="none"><path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" class="shape-fill"></path></svg></div></section><div class="spacer layer1"></div><section><h1>Nice Curves</h1><p>Atque illum perferendis minima perspiciatis! Repellendus recusandae illum officiis. Iste, esse quibusdam.</p></section><div class="spacer layer2 flip"></div><section class="pink"><div class="blob-content"><h1>Nice Curves</h1><p>Recusandae itaque ex commodi placeat! Est atque ea perferendis nesciunt aut vel.</p></div><svg id="visual" class="blob-motion" viewbox="0 0 960 300" width="960" height="300" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1"><g transform="translate(488.10893373552244 135.3444191935442)"><path id="blob1" d="M89.2 -83.2C107.7 -70.7 109.4 -35.4 102.3 -7.1C95.2 21.2 79.4 42.4 60.9 64.8C42.4 87.1 21.2 110.5 -6.1 116.7C-33.5 122.8 -66.9 111.6 -90.4 89.3C-113.9 66.9 -127.5 33.5 -120.6 6.8C-113.8 -19.8 -86.6 -39.6 -63.1 -52.1C-39.6 -64.6 -19.8 -69.8 7.8 -77.6C35.4 -85.4 70.7 -95.7 89.2 -83.2" fill="#BB004B"></path></g><g transform="translate(495.6915884330676 160.15755994133144)" style="visibility: hidden;"><path id="blob2" d="M86.2 -92.4C101.7 -70.7 97.4 -35.4 88.5 -8.8C79.7 17.7 66.4 35.4 50.9 56C35.4 76.7 17.7 100.3 -0.7 101.1C-19.1 101.8 -38.2 79.5 -63 58.9C-87.9 38.2 -118.4 19.1 -126 -7.5C-133.5 -34.2 -118 -68.4 -93.2 -90C-68.4 -111.7 -34.2 -120.8 0.6 -121.4C35.4 -122 70.7 -114 86.2 -92.4" fill="#BB004B"></path></g></svg> </section><div class="spacer layer2"></div><section><h1>Nice Curves</h1><p>Quod cum obcaecati soluta repellendus eos vitae expedita! Autem laborum dignissimos porro!</p></section></body></html>
