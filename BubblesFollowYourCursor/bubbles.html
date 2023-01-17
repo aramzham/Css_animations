@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8" /><meta http-equiv="X-UA-Compatible" content="IE=edge" /><meta name="viewport" content="width=device-width, initial-scale=1.0" /><title>Document</title><style>        #bubble-wrapper{
+            height: 100%;
+            width: 100%;
+            
+            /* position to bottom */
+            position: fixed;
+            bottom: 0;
+
+            /* hide mouse events */
+            overflow: hidden;
+            pointer-events: none;
+        }
+
+        .bubble{
+            height: max(300px, 30vw);
+            width: max(300px, 30vw);
+
+            /* give it a color */
+            background-color: rgb(33, 150, 243);
+            /* make it round */
+            border-radius: 100%;
+
+            /* position to bottom of the screen */
+            position: absolute;
+            left: 50%;
+            top: 100%;
+
+            /* set duration and repeat */
+            animation: wave 2s ease-in-out infinite;
+        }
+
+        /* create an animation that moves the bubble 20% up and back down */
+        @keyframes wave {
+            from, to {
+                transform: translate(-50%, 0%);
+            }
+
+            50% {
+                transform: translate(-50%, -20%);
+            }
+        }
+    
+</style>
+</head>
+<body>
+<div id="bubble-wrapper">
+</div>
+<script>
+	const wrapper = document.getElementById("bubble-wrapper");
+	
+	const animateBubble = x => {
+		const bubble = document.createElement("div");
+		
+		bubble.className = "bubble";
+		bubble.style.left = `${x}px`;
+		
+		wrapper.appendChild(bubble);
+		
+		setTimeout(() => wrapper.removeChild(bubble), 2000);
+	};
+	
+	window.onmousemove = e => animateBubble(e.clientX);
+</script>
+</body>
+</html>
